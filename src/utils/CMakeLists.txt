@@ -1,8 +1,8 @@
 # setup header only library
 add_library(utils INTERFACE)
-target_include_directories(utils INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include> $<INSTALL_INTERFACE:${CMAKE_INSTALL_PREFIX}/include/opencmw/>)
+target_include_directories(utils INTERFACE $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/utils/include> $<INSTALL_INTERFACE:${CMAKE_INSTALL_PREFIX}/include/opencmw/>)
 target_link_libraries(utils INTERFACE CONAN_PKG::fmt)
-set_target_properties(utils PROPERTIES PUBLIC_HEADER "include/Debug.hpp;include/Utils.hpp")
+set_target_properties(utils PROPERTIES PUBLIC_HEADER "include/Debug.hpp")
 
 install(
         TARGETS utils

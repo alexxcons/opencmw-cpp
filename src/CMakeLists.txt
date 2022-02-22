@@ -2,11 +2,8 @@ add_subdirectory(core)
 add_subdirectory(utils)
 add_subdirectory(serialiser)
 add_subdirectory(disruptor)
-add_subdirectory(majordomo/test)
-
 # add_subdirectory(client)
-# add_subdirectory(server)
-# add_subdirectory(server-rest)
+add_subdirectory(majordomo)
 
 # installation
 include(CMakePackageConfigHelpers)

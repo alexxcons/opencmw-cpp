@@ -1,6 +1,3 @@
-include(CTest)
-include(Catch)
-
 add_definitions (-fexceptions)
 
 cmrc_add_resource_library(
@@ -29,27 +26,13 @@ function(opencmw_add_test_app name sources)
     message("Test sources: ${test_SRCS}")
     add_executable(${name} ${test_SRCS})
 
-    target_include_directories (
-        ${name}
-        PUBLIC
-            ${CMAKE_CURRENT_SOURCE_DIR}/../include
-            ${CMAKE_CURRENT_SOURCE_DIR}/../../utils/include
-            ${CMAKE_CURRENT_SOURCE_DIR}/../../core/include
-            ${CMAKE_CURRENT_SOURCE_DIR}/../../serialiser/include
-        )
-
     target_link_libraries(${name}
         PUBLIC
-            pthread
             project_warnings
             project_options
             serialiser
+            majordomo
             CONAN_PKG::catch2
-            CONAN_PKG::fmt
-            CONAN_PKG::zeromq
-            CONAN_PKG::mp-units
-            CONAN_PKG::cpp-httplib
-            CONAN_PKG::openssl
             assets::rest
         )
 endfunction()
